@@ -1,4 +1,3 @@
----
 _schema-version: '3.1'
 ID: cap-library-app
 version: 1.0.0
@@ -22,3 +21,20 @@ modules:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
+    requires:
+      - name: cap-library-app-db
+
+  - name: cap-library-app-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: cap-library-app-db
+
+resources:
+  - name: cap-library-app-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
