@@ -2,6 +2,10 @@ namespace epam.sap.dev.library;
 
 using {managed} from '@sap/cds/common';
 using {masterdata} from './master-data';
+using {
+    sap.common.CodeList,
+    Currency
+} from './common';
 
 entity Booking: managed {
     key bookingUUID     : UUID;
@@ -37,6 +41,7 @@ entity Books: managed {
         copyQty      : Integer;
         shippedQty   : Integer;
         price        : Decimal(15, 2);
+        currencyCode : Currency;
         status       : Association to one masterdata.BookStatuses; 
         image        : LargeBinary @Core.MediaType : 'image/png';
 }
