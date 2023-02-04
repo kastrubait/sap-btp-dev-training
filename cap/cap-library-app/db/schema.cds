@@ -1,8 +1,9 @@
 namespace epam.sap.dev.library;
 
+using {managed} from '@sap/cds/common';
 using {masterdata} from './master-data';
 
-entity Booking {
+entity Booking: managed {
     key bookingUUID     : UUID;
         bookingID       : Integer;
         readerID        : Association to Readers;
@@ -15,7 +16,7 @@ entity Booking {
         image           : LargeBinary @Core.MediaType : 'image/png';
 }
 
-entity Authors {
+entity Authors: managed {
     key authorUUID  : UUID;
         authorID    : Integer;
         firstName   : String(15);
@@ -27,7 +28,7 @@ entity Authors {
                         on book.toAuthor = $self;
 };
 
-entity Books {
+entity Books: managed {
     key bookUUID     : UUID;
         toAuthor     : Association to Authors;
         bookID       : Integer;
@@ -40,7 +41,7 @@ entity Books {
         image        : LargeBinary @Core.MediaType : 'image/png';
 }
 
-entity Readers {
+entity Readers: managed {
     key readerUUID    : UUID;
         readerID      : Integer;
         firstName     : String(15);
