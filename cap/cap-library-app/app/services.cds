@@ -7,4 +7,5 @@ using from './zlabreader/labels';
 using from './zlabbook/annotations';
 using from './zlabbook/capabilities';
 using from './zlabbook/field-control';
+using from './zlabbook/value-helps';
 using from './zlabbook/labels';
