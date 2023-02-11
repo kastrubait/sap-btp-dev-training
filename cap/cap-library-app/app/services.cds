@@ -14,3 +14,10 @@ using from './zlabauthor/annotations';
 using from './zlabauthor/capabilities';
 using from './zlabauthor/field-control';
 using from './zlabauthor/labels';
+
+
+using from './zlabbooking/annotations';
+using from './zlabbooking/capabilities';
+using from './zlabbooking/field_control';
+using from './zlabbooking/labels';
+using from './zlabbooking/value-helps';
