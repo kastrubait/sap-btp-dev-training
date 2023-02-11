@@ -56,7 +56,7 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
+        "kind": "hana-cloud",
         "credentials": {
           "database": "db/book-library.db"
         }
