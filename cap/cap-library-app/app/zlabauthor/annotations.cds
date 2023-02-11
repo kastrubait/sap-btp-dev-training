@@ -126,7 +126,7 @@ annotate service.Authors with @(
         {
             $Type  : 'UI.ReferenceFacet',
             Label  : '{i18n>bookInfo}',
-            Target : 'book/@UI.LineItem'
+            Target : 'book/toAuthor/@UI.LineItem'
         }
     ]
 );
