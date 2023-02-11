@@ -10,4 +10,7 @@ using from './zlabbook/field-control';
 using from './zlabbook/value-helps';
 using from './zlabbook/labels';
 
-using from './zlabauthot/annotations';
+using from './zlabauthor/annotations';
+using from './zlabauthor/capabilities';
+using from './zlabauthor/field-control';
+using from './zlabauthor/labels';

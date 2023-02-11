@@ -65,6 +65,6 @@
     "sapux": [
         "app/zlabreader",
         "app/zlabbook",
-        "app/zlabauthot"
+        "app/zlabauthor"
     ]
 }
