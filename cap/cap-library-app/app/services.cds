@@ -9,3 +9,5 @@ using from './zlabbook/capabilities';
 using from './zlabbook/field-control';
 using from './zlabbook/value-helps';
 using from './zlabbook/labels';
+
+using from './zlabauthot/annotations';
