@@ -72,8 +72,8 @@ modules:
       name: zlabzlabbook
       target-path: resources/
     - artifacts:
-      - zlabzlabauthot.zip
-      name: zlabzlabauthot
+      - zlabzlabauthor.zip
+      name: zlabzlabauthor
       target-path: resources/
     - artifacts:
       - zlabzlabbooking.zip
@@ -99,9 +99,9 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
-- name: zlabzlabauthot
+- name: zlabzlabauthor
   type: html5
-  path: app/zlabauthot
+  path: app/zlabauthor
   build-parameters:
     build-result: dist
     builder: custom

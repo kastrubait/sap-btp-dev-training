@@ -24,6 +24,26 @@
                     "localUri": "localService/metadata.xml",
                     "odataVersion": "4.0"
                 }
+            }   
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zlab-zlabreader-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Readers",
+                    "action": "manage",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": "sap-icon://customer",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Readers/$count",
+                        "refresh": 10
+                    }
+                }
             }
         }
     },
