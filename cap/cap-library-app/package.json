@@ -56,9 +56,14 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "hana-cloud",
-        "credentials": {
-          "database": "db/book-library.db"
+        "[development]": {
+          "kind": "sql"
+        },
+        "[production]": {
+          "kind": "hana-cloud",
+          "credentials": {
+            "database": "db/book-library.db"
+          }
         }
       }
     }
