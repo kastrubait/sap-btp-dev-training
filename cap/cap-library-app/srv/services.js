@@ -7,6 +7,7 @@ module.exports = cds.service.impl(async function () {
     this.before('NEW', 'Books', async (req) => {
         const { maxID } = await SELECT.one`max(bookID) as maxID`.from(Books);
         req.data.bookID = maxID + 1;
+        req.data.status_ID = '0';
     });
 
     this.before('NEW', 'Readers', async (req) => {
@@ -22,6 +23,7 @@ module.exports = cds.service.impl(async function () {
     this.before('NEW', 'Booking', async (req) => {
         const { maxID } = await SELECT.one`max(bookingID) as maxID`.from(Booking);
         req.data.bookingID = maxID + 1;
+        req.data.bookingStatus_ID = '2';
     });
 
     this.on('returnTheBook', 'Booking', async (req) => {
@@ -32,5 +34,11 @@ module.exports = cds.service.impl(async function () {
             endTime: (new Date).toISOString().slice(11, 19)
         });
     });
+
+    this.before('CREATE', 'Booking', async (req) => {
+        const today = (new Date).toISOString().slice(0, 10);
+            req.data.beginDate = today;
+            req.data.beginTime = (new Date).toISOString().slice(11, 19);
+    })
 
 })
