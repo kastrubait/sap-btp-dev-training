@@ -39,6 +39,6 @@ module.exports = cds.service.impl(async function () {
         const today = (new Date).toISOString().slice(0, 10);
             req.data.beginDate = today;
             req.data.beginTime = (new Date).toISOString().slice(11, 19);
-    })
+    });
 
 })
