@@ -3,7 +3,9 @@ using masterdata as masterdata from '../db/master-data';
 using sap.common as common from '@sap/cds/common';
 
 service LibraryService {
-    entity Booking      as projection on library.Booking;
+    entity Booking      as projection on library.Booking actions {
+        action returnTheBook();
+    };
 
     entity Books        as projection on library.Books;
 
