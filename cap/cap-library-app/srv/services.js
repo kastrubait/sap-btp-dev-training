@@ -1,4 +1,5 @@
 const cds = require('@sap/cds');
+const constants = require('./constants');
 
 module.exports = cds.service.impl(async function () {
 
@@ -39,6 +40,23 @@ module.exports = cds.service.impl(async function () {
         const today = (new Date).toISOString().slice(0, 10);
             req.data.beginDate = today;
             req.data.beginTime = (new Date).toISOString().slice(11, 19);
+    });
+
+    this.before('SAVE', 'Booking', async (req) => {
+        const { bookID_bookUUID } = req.data;
+        let { copiesBook } = await SELECT.one`copyQty as copiesBook`.from(Books).where({ bookUUID: bookID_bookUUID });
+        let { takenBooks } = await SELECT.one`count(bookingStatus_ID) as takenBooks`.from(Booking).where({ bookId_bookUUID: bookID_bookUUID, bookingStatus_ID: '2' });
+        if (copiesBook <= takenBooks) {
+            return req.error(400, constants.genericErrors.bookNotAvailable);
+        } 
+    });
+
+    this.before('CREATE', 'Books', async (req) => {
+        const book = req.data;
+        if (book.pageNumber <= 0)
+            return req.error(400, constants.genericErrors.wrongPagesInput);
+        if ( book.copyQty <= 0)
+            return req.error(400, constants.genericErrors.wrongCopiesInput);
     });
 
 })
