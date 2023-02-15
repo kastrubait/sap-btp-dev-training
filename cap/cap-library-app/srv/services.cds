@@ -4,6 +4,7 @@ using sap.common as common from '@sap/cds/common';
 
 service LibraryService {
     entity Booking      as projection on library.Booking actions {
+        @Core.OperationAvailable : in.returnTheBookEnabled
         action returnTheBook();
     };
 

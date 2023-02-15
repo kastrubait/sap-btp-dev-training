@@ -8,16 +8,17 @@ using {
 } from './common';
 
 entity Booking: managed {
-    key bookingUUID     : UUID;
-        bookingID       : Integer;
-        readerID        : Association to Readers;
-        bookID          : Association to Books;
-        bookingStatus   : Association to one masterdata.Statuses;
-        beginDate       : Date;
-        beginTime       : Time;
-        endDate         : Date;
-        endTime         : Time;
-        image           : LargeBinary @Core.MediaType : 'image/png';
+    key bookingUUID                 : UUID;
+        bookingID                   : Integer;
+        readerID                    : Association to Readers;
+        bookID                      : Association to Books;
+        bookingStatus               : Association to one masterdata.Statuses;
+        beginDate                   : Date;
+        beginTime                   : Time;
+        endDate                     : Date;
+        endTime                     : Time;
+        image                       : LargeBinary @Core.MediaType : 'image/png';
+        virtual returnTheBookEnabled: Boolean;
 }
 
 entity Authors: managed {

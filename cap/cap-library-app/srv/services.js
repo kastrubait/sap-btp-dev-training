@@ -59,4 +59,11 @@ module.exports = cds.service.impl(async function () {
             return req.error(400, constants.genericErrors.wrongCopiesInput);
     });
 
+    this.after('READ', 'Booking', (each) => {
+        if (each.bookingStatus_ID == '2') {
+            each.returnTheBookEnabled = true;
+        }
+    })
+
+
 })
