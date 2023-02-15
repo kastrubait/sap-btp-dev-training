@@ -37,10 +37,17 @@ modules:
         parameters:
           service-key:
             name: uaa_cap-library-app-key
+      - name: srv-api 
     parameters:
       content:
         instance:
           destinations:
+            - Authentication: OAuth2UserTokenExchange
+              Name: cap-library-app-srv
+              ServiceInstanceName: cap-library-app-xsuaa-service
+              ServiceKeyName: uaa_cap-library-app-key
+              URL: ~{srv-api/srv-url}
+              sap.cloud.service: caplibraty
             - Name: caplibraty_cap_library_app_html_repo_host
               ServiceInstanceName: cap-library-app-html5-app-host-service
               ServiceKeyName: cap-library-app_html_repo_host-key

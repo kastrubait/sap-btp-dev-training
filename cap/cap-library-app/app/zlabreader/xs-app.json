@@ -14,6 +14,13 @@
       "authenticationType": "none",
       "destination": "ui5"
     },
+    { 
+      "source": "^/library/(.*)$",
+      "target": "/library/$1",
+      "destination": "cap-library-app-srv",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
     {
       "source": "^(.*)$",
       "target": "$1",
