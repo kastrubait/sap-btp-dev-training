@@ -1,7 +1,6 @@
----
 _schema-version: '3.1'
 ID: cap-book-orders-app
-version: 1.0.0
+version: 1.0.1
 description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
@@ -22,3 +21,34 @@ modules:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
+    requires:
+      - name: cap-book-orders-app-db
+      - name: cap-book-orders-app-auth
+
+  - name: cap-book-orders-app-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: cap-book-orders-app-db
+      - name: cap-book-orders-app-auth
+
+resources:
+  - name: cap-book-orders-app-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-service-name: ${service-name}
+  - name: cap-book-orders-app-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+      service-name: cap-book-orders-app-xsuaa-service
+      config:
+        xsappname: cap-book-orders-app-${org}-${space}
+        tenant-mode: dedicated
