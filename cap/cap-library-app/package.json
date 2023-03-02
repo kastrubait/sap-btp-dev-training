@@ -17,12 +17,12 @@
   },
   "scripts": {
     "start": "cds run",
-    "watch-zlabreader": "cds watch --open zlabreader/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy cap-library-app --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
     "watch-zlabbook": "cds watch --open zlabbook/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-zlabauthot": "cds watch --open zlabauthot/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-zlabreader": "cds watch --open zlabreader/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-zlabbooking": "cds watch --open zlabbooking/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "engines": {
@@ -66,6 +66,9 @@
           }
         }
       }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
     }
   },
   "sapux": [

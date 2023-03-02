@@ -19,7 +19,8 @@
       "target": "/library/$1",
       "destination": "cap-library-app-srv",
       "authenticationType": "xsuaa",
-      "csrfProtection": false
+      "csrfProtection": false,
+      "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {
       "source": "^(.*)$",
