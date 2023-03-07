@@ -40,7 +40,7 @@
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Readers/$count",
+                        "path": "Readers/$count",
                         "refresh": 10
                     }
                 }

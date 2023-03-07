@@ -7,6 +7,8 @@ default-*.json
 .cdsrc-private.json
 gen/
 node_modules/
+resources/
+app/**/dist
 target/
 
 # Web IDE, App Studio

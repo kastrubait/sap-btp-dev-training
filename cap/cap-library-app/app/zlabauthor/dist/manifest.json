@@ -28,19 +28,19 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "zlab-zlabreader-inbound": {
+                "zlab-zlabbook-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Readers",
+                    "semanticObject": "Authors",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Readers/$count",
+                        "path": "Authors/$count",
                         "refresh": 10
                     }
                 }
