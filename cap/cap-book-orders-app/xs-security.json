@@ -8,7 +8,6 @@
       "description": "UAA"
     }
   ],
-  "attributes": [],
   "role-templates": [
     {
       "name": "Token_Exchange",

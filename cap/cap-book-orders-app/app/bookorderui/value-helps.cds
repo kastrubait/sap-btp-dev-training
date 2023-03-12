@@ -11,11 +11,11 @@ Parameters : [
 SearchSupported : true
 };
 
-CurrencyCode @Common.ValueList: {
+currencyCode @Common.ValueList: {
     CollectionPath : 'Currencies',
     Label : '',
     Parameters : [
-      {$Type: 'Common.ValueListParameterInOut', LocalDataProperty: CurrencyCode_code, ValueListProperty: 'code'},
+      {$Type: 'Common.ValueListParameterInOut', LocalDataProperty: currencyCode_code, ValueListProperty: 'code'},
       {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'name'},
       {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'descr'},
       {$Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'symbol'},

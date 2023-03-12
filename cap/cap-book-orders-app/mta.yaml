@@ -36,12 +36,12 @@ modules:
     build-result: resources
     requires:
     - artifacts:
-      - orderbookui.zip
-      name: orderbookui
+      - bookorderui.zip
+      name: bookorderui
       target-path: resources/
-- name: orderbookui
+- name: bookorderui
   type: html5
-  path: app/orderbookui
+  path: app/bookorderui
   build-parameters:
     build-result: dist
     builder: custom
@@ -49,6 +49,43 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: cap-book-orders-app-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: cap-book-orders-app-destination-service
+    parameters:
+      content-target: true
+  - name: cap-book-orders-app-repo-host
+    parameters:
+      service-key:
+        name: cap-book-orders-app-repo-host-key
+  - name: cap-book-orders-app-auth
+    parameters:
+      service-key:
+        name: cap-book-orders-app-auth-key
+  - name: srv-api
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Authentication: OAuth2UserTokenExchange
+          Name: cap-book_orders-app-srv
+          ServiceInstanceName: cap-book-orders-app-xsuaa-service
+          ServiceKeyName: cap-book-orders-app-auth-key
+          URL: ~{srv-api/srv-url}
+          sap.cloud.service: bookorder
+        - Name: boolorder_cap_book_orders_app_repo_host
+          ServiceInstanceName: cap-book-orders-app-html5-host-service
+          ServiceKeyName: cap-book-orders-app-repo-host-key
+          sap.cloud.service: bookorder
+        - Authentication: OAuth2UserTokenExchange
+          Name: boolorder_cap_book_orders_app_auth
+          ServiceInstanceName: cap-book-orders-app-xsuaa-service
+          ServiceKeyName: cap-book-orders-app-auth-key
+          sap.cloud.service: bookorder
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
 resources:
 - name: cap-book-orders-app-db
   type: com.sap.xs.hdi-container
@@ -60,9 +97,6 @@ resources:
 - name: cap-book-orders-app-auth
   type: org.cloudfoundry.managed-service
   parameters:
-    config:
-      tenant-mode: dedicated
-      xsappname: cap-book-orders-app-${org}-${space}
     path: ./xs-security.json
     service: xsuaa
     service-name: cap-book-orders-app-xsuaa-service
@@ -71,22 +105,13 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: cap-book-orders-app-html5-srv
+    service-name: cap-book-orders-app-html5-host-service
     service-plan: app-host
 - name: cap-book-orders-app-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
-      init_data:
-        instance:
-          destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
-          existing_destinations_policy: update
+      HTML5Runtime_enabled: true
       version: 1.0.0
     service: destination
     service-name: cap-book-orders-app-destination-service
