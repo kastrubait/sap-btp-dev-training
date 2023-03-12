@@ -35,19 +35,19 @@ annotate service.BookOrders with @(
                 $Type             : 'UI.DataField',
                 Value             : bookName,
                 ![@UI.Importance] : #High,
-                Label             : '{i18n>bookname}'
+                Label             : '{i18n>bookName}'
             },
             {
                 $Type             : 'UI.DataField',
                 Value             : authorfirstName,
                 ![@UI.Importance] : #High,
-                Label             : '{i18n>firstname}'
+                Label             : '{i18n>firstName}'
             },
             {
                 $Type             : 'UI.DataField',
                 Value             : authorlastName,
                 ![@UI.Importance] : #High,
-                Label             : '{i18n>lastname}'
+                Label             : '{i18n>lastName}'
             },
             {
                 $Type             : 'UI.DataField',
@@ -65,7 +65,7 @@ annotate service.BookOrders with @(
                 $Type             : 'UI.DataField',
                 Value             : totalPrice,
                 ![@UI.Importance] : #High,
-                Label             : '{i18n>totalprice}'
+                Label             : '{i18n>totalPrice}'
             },
 
         ],
@@ -117,17 +117,17 @@ annotate service.BookOrders with @(
             {
                 $Type : 'UI.DataField',
                 Value : bookName,
-                Label : '{i18n>bookname}'
+                Label : '{i18n>bookName}'
             },
             {
                 $Type : 'UI.DataField',
                 Value : authorfirstName,
-                Label : '{i18n>firstname}'
+                Label : '{i18n>firstName}'
             },
             {
                 $Type : 'UI.DataField',
                 Value : authorlastName,
-                Label : '{i18n>lastname}'
+                Label : '{i18n>lastName}'
             },
             {
                 $Type : 'UI.DataField',
@@ -142,7 +142,7 @@ annotate service.BookOrders with @(
             {
                 $Type : 'UI.DataField',
                 Value : totalPrice,
-                Label : '{i18n>totalprice}'
+                Label : '{i18n>totalPrice}'
             },
             {
                 $Type : 'UI.DataField',
